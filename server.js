@@ -1,10 +1,12 @@
 const jsonServer = require('json-server');
 const server = jsonServer.create();
-const router = jsonServer.router('data.json');
+const router = jsonServer.router('data.json'); // File data.json chứa dữ liệu của bạn
 const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
 server.use(router);
-server.listen(process.env.PORT || 3000, () => {
-  console.log('JSON Server is running at: ', process.env.PORT || 3000);
+
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`JSON Server is running on port ${PORT}`);
 });
